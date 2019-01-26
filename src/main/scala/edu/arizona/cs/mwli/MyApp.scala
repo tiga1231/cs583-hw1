@@ -4,7 +4,8 @@ import edu.arizona.cs.mwli
 object MyApp extends App {
   val docFn = args(0)
   val db = new InvertedIndex(docFn)
-  val queryString = args(1)
+  val queryString = args.tail.mkString(" ")
+
   
 
   printf("QUERY: %s\n", queryString)

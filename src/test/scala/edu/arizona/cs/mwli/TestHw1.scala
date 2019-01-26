@@ -111,5 +111,15 @@ class TestHw1 extends FlatSpec with Matchers {
     answer should be (List[Int](3, 4))
   }
 
+  "Parenthesis" should "allow crazy nesting" in {
+    var answer = db.query("(a OR d) AND ((b) OR c)")
+    answer should be (List[Int](0,1))
+    //TODO
+    // answer = db.query("4 OR 1 AND 2")
+    // answer should be (List[Int](0,1,9))
+
+  }
+  
+
 
 }
