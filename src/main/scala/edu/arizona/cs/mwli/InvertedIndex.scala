@@ -5,16 +5,23 @@ package edu.arizona.cs.mwli
 import scala.io.Source
 import scala.collection.mutable
 
-
-class InvertedIndex(fn: String){
+/** stores indexed terms given in documents
+ *
+ *  @constructor create the index.
+ *  @param filename of text file that contains all the documents
+ */
+class InvertedIndex(filename: String){
 
   val doc2id = mutable.Map[String, Int]()
   val id2doc = mutable.Map[Int, String]()
-  val db = mkDb(fn)
+  val db = mkDb(filename)
   var isDebug = false
   var tokenizer = new Tokenizer()
 
-
+  /** stores indexed terms given in documents
+   *
+   *  @param q the query, support operators AND, OR and (),  e.g. "a AND (b or c)"
+   */
   def query(q: String):List[Int] = {
     val tokens = tokenizer.tokenize(q)
     var res = parse(tokens)
@@ -200,10 +207,10 @@ class InvertedIndex(fn: String){
   }
 
 
-  def mkDb(fn: String) = {
+  def mkDb(filename: String) = {
     var term_docId_pairs: List[Tuple2[String, Int]] = Nil
     var i = 0
-    for (line <- Source.fromFile(fn).getLines() ){
+    for (line <- Source.fromFile(filename).getLines() ){
       val array = line.split(" ")
       val (doc, tokens) = (array.head, array.tail)
       if(!doc2id.contains(doc)){

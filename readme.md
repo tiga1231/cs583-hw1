@@ -102,7 +102,3 @@ Doc2 new approach for treatment of schizophrenia
 Doc3 new hopes for schizophrenia patients
 Doc4 new schizophrenia drug
 ```
-
-## API Refernce
-### InvertedIndex.scala
-
