@@ -1,4 +1,4 @@
-import Dependencies._
+// import Dependencies._
 
 ThisBuild / scalaVersion     := "2.12.8"
 ThisBuild / version          := "0.1.0-SNAPSHOT"
@@ -8,7 +8,7 @@ ThisBuild / organizationName := "mwli"
 lazy val root = (project in file("."))
   .settings(
     name := "hw1",
-    libraryDependencies += scalaTest % Test
+    // libraryDependencies += scalaTest % Test
   )
 
 // Uncomment the following for publishing to Sonatype.
